@@ -7,7 +7,7 @@ RUN apt-get update -y && apt-get upgrade -y \
 
 RUN apt-get update -y \
     && apt-get install -y php${PHP} php${PHP}-cli php${PHP}-fpm php${PHP}-curl php${PHP}-xml php${PHP}-mbstring php${PHP}-bcmath php${PHP}-zip \
-    php${PHP}-mysql php${PHP}-bz2 php${PHP}-gd
+    php${PHP}-mysql php${PHP}-bz2 php${PHP}-gd patch
 
     # php${PHP}-mcrypt not available for 7.2
 
