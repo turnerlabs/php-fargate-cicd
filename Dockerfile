@@ -1,8 +1,9 @@
 FROM quay.io/turner/fargate-cicd
-ENV PHP=7.2
+ENV PHP=7.3
+ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update -y && apt-get upgrade -y \
-   && apt-get install -y python-software-properties \
+   && apt-get install -y software-properties-common \
    && LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php
 
 RUN apt-get update -y \
@@ -14,8 +15,7 @@ RUN apt-get upgrade -y nodejs \
     && npm cache clean -f \
     && npm install -g n \
     && n stable \
-    && ln -s /usr/bin/nodejs /usr/bin/node \
-    && npm install -g gulp gulp-cli gulp-livereload gulp-if gulp-eslint gulp-sass gulp-autoprefixer gulp-sourcemaps gulp-sass-lint imagemin-pngquant \
+    && PATH="$PATH" npm install -g gulp gulp-cli gulp-livereload gulp-if gulp-eslint gulp-sass gulp-autoprefixer gulp-sourcemaps gulp-sass-lint imagemin-pngquant --unsafe-perm=true --allow-root \
     && npm rebuild node-sass
 
     # php${PHP}-mcrypt not available for 7.2
