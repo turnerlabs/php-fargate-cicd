@@ -13,7 +13,7 @@ Includes:
 - [aws-cli](https://aws.amazon.com/cli/)
 - [fargate](https://github.com/turnerlabs/fargate)
 - [jq](https://stedolan.github.io/jq/)
-- php 7.2
+- php 7.3
 - php composer
 
 Usage:
